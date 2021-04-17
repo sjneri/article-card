@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Frontend Mentor | Article preview component</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <!-- Image -->
+      <div class="image"></div>
+
+      <!-- Article -->
+      <div class="article">
+        <h1 class="article__title">Shift the overall look and feel by adding these wonderful touches to furniture in
+          your home</h1>
+        <p class="article__text">Ever been in a room and felt like something was missing? Perhaps it felt slightly bare
+          and uninviting. I’ve got some simple tips to help you make any room feel complete.
+        </p>
+
+        <div class="article__footer">
+          <div class="user">
+            <img src="images/avatar-michelle.jpg" alt="Michelle Appleton" class="user__image">
+            <div class="user__details">
+              <p class="user__details--name">Michelle Appleton</p>
+              <p class="user__details--date">28 Jun 2020</p>
+            </div>
+          </div>
+          <div class="share">
+            <button class="btn">
+              <img src="images/icon-share.svg" alt="Share Button">
+            </button>
+
+            <div class="share__content">
+              <p class="share__text">Share</p>
+              <div class="share__icons">
+                <img src="./images/icon-facebook.svg" alt="Facebook">
+                <img src="./images/icon-twitter.svg" alt="Twitter">
+                <img src="./images/icon-pinterest.svg" alt="Pinterest">
+              </div>
+            </div>
+          </div>
+
+          <div class="share-mobile">
+            <div class="share__content">
+              <p class="share__text">Share</p>
+              <div class="share__icons">
+                <img src="./images/icon-facebook.svg" alt="Facebook">
+                <img src="./images/icon-twitter.svg" alt="Twitter">
+                <img src="./images/icon-pinterest.svg" alt="Pinterest">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('button.btn').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if ($(window).width() > 600) {
+          $('.share').toggleClass('active');
+        } else {
+          $('.share-mobile').toggleClass('active');
+        }
+      });
+    });
+
+
+    $(document).click (function (e) {
+      if (e.target != $('button.btn')[0]) {
+        $('.share, .share-mobile').removeClass('active');
+      }
+    });
+  </script>
+</body>
+
+</html>
